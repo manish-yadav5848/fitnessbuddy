@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Athlete Dashboard — Your 12-Week Transformation</title>
+    <meta name="description" content="A personalized hybrid training and nutrition dashboard for lean muscle gain, cardiovascular endurance, and all-round fitness development.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6.5 6.5h11v11h-11z"/>
+                        <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="logo-text">HYBRID<span class="accent">FORGE</span></h1>
+                    <p class="logo-sub">12-Week Transformation Program</p>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="stat-pill">
+                    <span class="stat-label">Week</span>
+                    <span class="stat-value" id="currentWeek">1</span>
+                    <span class="stat-label">/12</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-label">Day</span>
+                    <span class="stat-value" id="currentDay">—</span>
+                </div>
+                <div class="stat-pill accent-pill">
+                    <span class="stat-label">Phase</span>
+                    <span class="stat-value" id="currentPhase">Foundation</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-track">
+            <button class="nav-btn active" data-tab="overview" id="nav-overview">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <span>Overview</span>
+            </button>
+            <button class="nav-btn" data-tab="workout" id="nav-workout">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 5v14M18 5v14M2 9h4M18 9h4M2 15h4M18 15h4M6 9h12M6 15h12"/></svg>
+                <span>Workout</span>
+            </button>
+            <button class="nav-btn" data-tab="nutrition" id="nav-nutrition">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                <span>Nutrition</span>
+            </button>
+
+            <button class="nav-btn" data-tab="routine" id="nav-routine">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Daily Routine</span>
+            </button>
+            <button class="nav-btn" data-tab="supplements" id="nav-supplements">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+                <span>Supplements</span>
+            </button>
+            <button class="nav-btn" data-tab="progress" id="nav-progress">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <span>Progress</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- ====== OVERVIEW TAB ====== -->
+        <section class="tab-content active" id="tab-overview">
+            <div class="section-header">
+                <h2 class="section-title">Your Transformation Blueprint</h2>
+                <p class="section-subtitle">Personalized for your goals — strength, cardio, pelvic health, all-round development</p>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="profile-grid">
+                <div class="glass-card profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+                        </div>
+                        <div>
+                            <h3>Manish Yadav</h3>
+                            <span class="badge">Hybrid Athlete In Training</span>
+                        </div>
+                    </div>
+                    <div class="profile-stats-grid">
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">26</span>
+                            <span class="profile-stat-label">Age</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">60<small>kg</small></span>
+                            <span class="profile-stat-label">Weight</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">165<small>cm</small></span>
+                            <span class="profile-stat-label">Height</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">22</span>
+                            <span class="profile-stat-label">BMI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card targets-card">
+                    <h3 class="card-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        Daily Targets
+                    </h3>
+                    <div class="targets-grid">
+                        <div class="target-item">
+                            <div class="target-ring" data-value="2650" data-max="2650" data-color="#f59e0b">
+                                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="ring-bg"/><circle cx="50" cy="50" r="42" class="ring-fill" style="--progress: 100; --color: #f59e0b"/></svg>
+                                <span class="ring-label">2,650</span>
+                            </div>
+                            <span class="target-name">Calories</span>
+                        </div>
+                        <div class="target-item">
+                            <div class="target-ring" data-value="108" data-max="108" data-color="#ef4444">
+                                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="ring-bg"/><circle cx="50" cy="50" r="42" class="ring-fill" style="--progress: 100; --color: #ef4444"/></svg>
+                                <span class="ring-label">108g</span>
+                            </div>
+                            <span class="target-name">Protein</span>
+                        </div>
+                        <div class="target-item">
+                            <div class="target-ring" data-value="330" data-max="330" data-color="#3b82f6">
+                                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="ring-bg"/><circle cx="50" cy="50" r="42" class="ring-fill" style="--progress: 100; --color: #3b82f6"/></svg>
+                                <span class="ring-label">330g</span>
+                            </div>
+                            <span class="target-name">Carbs</span>
+                        </div>
+                        <div class="target-item">
+                            <div class="target-ring" data-value="100" data-max="100" data-color="#10b981">
+                                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="ring-bg"/><circle cx="50" cy="50" r="42" class="ring-fill" style="--progress: 100; --color: #10b981"/></svg>
+                                <span class="ring-label">100g</span>
+                            </div>
+                            <span class="target-name">Fats</span>
+                        </div>
+                        <div class="target-item">
+                            <div class="target-ring" data-value="4" data-max="4" data-color="#06b6d4">
+                                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="ring-bg"/><circle cx="50" cy="50" r="42" class="ring-fill" style="--progress: 100; --color: #06b6d4"/></svg>
+                                <span class="ring-label">4L</span>
+                            </div>
+                            <span class="target-name">Water</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Schedule -->
+            <div class="glass-card">
+                <h3 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Weekly Training Schedule
+                </h3>
+                <div class="week-grid">
+                    <div class="day-card strength-day" data-day="monday">
+                        <div class="day-badge">MON</div>
+                        <h4>Upper Push</h4>
+                        <p>+ Core</p>
+                        <span class="day-duration">60-75 min</span>
+                        <span class="day-type-badge strength">Strength</span>
+                    </div>
+                    <div class="day-card cardio-day" data-day="tuesday">
+                        <div class="day-badge">TUE</div>
+                        <h4>Zone 2</h4>
+                        <p>Steady Cardio</p>
+                        <span class="day-duration">40-50 min</span>
+                        <span class="day-type-badge cardio">Cardio</span>
+                    </div>
+                    <div class="day-card strength-day" data-day="wednesday">
+                        <div class="day-badge">WED</div>
+                        <h4>Lower Body</h4>
+                        <p>Quad Focus</p>
+                        <span class="day-duration">60-75 min</span>
+                        <span class="day-type-badge strength">Strength</span>
+                    </div>
+                    <div class="day-card cardio-day" data-day="thursday">
+                        <div class="day-badge">THU</div>
+                        <h4>HIIT</h4>
+                        <p>Intervals</p>
+                        <span class="day-duration">30-40 min</span>
+                        <span class="day-type-badge hiit">HIIT</span>
+                    </div>
+                    <div class="day-card strength-day" data-day="friday">
+                        <div class="day-badge">FRI</div>
+                        <h4>Upper Pull</h4>
+                        <p>+ Core</p>
+                        <span class="day-duration">60-75 min</span>
+                        <span class="day-type-badge strength">Strength</span>
+                    </div>
+                    <div class="day-card hybrid-day" data-day="saturday">
+                        <div class="day-badge">SAT</div>
+                        <h4>Hinge + Cardio</h4>
+                        <p>Posterior Chain</p>
+                        <span class="day-duration">75-90 min</span>
+                        <span class="day-type-badge hybrid">Hybrid</span>
+                    </div>
+                    <div class="day-card rest-day" data-day="sunday">
+                        <div class="day-badge">SUN</div>
+                        <h4>Rest</h4>
+                        <p>Recovery</p>
+                        <span class="day-duration">20-30 min</span>
+                        <span class="day-type-badge rest">Rest</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12 Week Phases -->
+            <div class="glass-card">
+                <h3 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    12-Week Progressive Overload Phases
+                </h3>
+                <div class="phases-timeline">
+                    <div class="phase-block active" id="phase1">
+                        <div class="phase-header">
+                            <span class="phase-number">Phase 1</span>
+                            <span class="phase-name">Foundation</span>
+                            <span class="phase-weeks">Weeks 1–4</span>
+                        </div>
+                        <div class="phase-details">
+                            <ul>
+                                <li>Learn movements with proper form</li>
+                                <li>RPE 6–7 (2–3 reps in reserve)</li>
+                                <li>10–12 reps compounds, 12–15 accessories</li>
+                                <li>Add 1–2.5 kg weekly to compounds</li>
+                                <li>Zone 2 cardio: 30 min</li>
+                                <li><strong>Week 4: DELOAD</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-connector"></div>
+                    <div class="phase-block" id="phase2">
+                        <div class="phase-header">
+                            <span class="phase-number">Phase 2</span>
+                            <span class="phase-name">Building</span>
+                            <span class="phase-weeks">Weeks 5–8</span>
+                        </div>
+                        <div class="phase-details">
+                            <ul>
+                                <li>Progressive loading & weak point focus</li>
+                                <li>RPE 7–8 (1–2 reps in reserve)</li>
+                                <li>8–10 reps compounds, 10–12 accessories</li>
+                                <li>Add 1 set to primary compounds</li>
+                                <li>Zone 2 cardio: 35–40 min (treadmill/bike)</li>
+                                <li><strong>Week 8: DELOAD</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="phase-connector"></div>
+                    <div class="phase-block" id="phase3">
+                        <div class="phase-header">
+                            <span class="phase-number">Phase 3</span>
+                            <span class="phase-name">Peak</span>
+                            <span class="phase-weeks">Weeks 9–12</span>
+                        </div>
+                        <div class="phase-details">
+                            <ul>
+                                <li>Push limits & test new PRs</li>
+                                <li>RPE 8–9 (0–1 reps in reserve)</li>
+                                <li>5–8 reps compounds, 8–12 accessories</li>
+                                <li>4 sets compounds, 3 accessories</li>
+                                <li>Zone 2 cardio: 40–45 min (treadmill/bike)</li>
+                                <li><strong>Week 12: DELOAD</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12-Week Milestones -->
+            <div class="glass-card">
+                <h3 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    12-Week Milestone Targets
+                </h3>
+                <div class="milestones-grid">
+                    <div class="milestone-row header">
+                        <span>Metric</span>
+                        <span>Week 1</span>
+                        <span>Week 6</span>
+                        <span>Week 12</span>
+                    </div>
+                    <div class="milestone-row"><span>🏋️ Bench Press</span><span>30–35 kg</span><span>40–45 kg</span><span class="highlight">50–55 kg</span></div>
+                    <div class="milestone-row"><span>🦵 Squat</span><span>40–50 kg</span><span>55–65 kg</span><span class="highlight">70–80 kg</span></div>
+                    <div class="milestone-row"><span>💪 Deadlift</span><span>50–60 kg</span><span>70–80 kg</span><span class="highlight">90–100 kg</span></div>
+                    <div class="milestone-row"><span>🔼 Pull-ups</span><span>2–4 reps</span><span>6–8 reps</span><span class="highlight">8–12 reps</span></div>
+                    <div class="milestone-row"><span>🏃 5K Run</span><span>32–35 min</span><span>28–30 min</span><span class="highlight">25–28 min</span></div>
+                    <div class="milestone-row"><span>🚶 Incline Walk</span><span>10% / 20 min</span><span>12% / 30 min</span><span class="highlight">15% / 30 min</span></div>
+                    <div class="milestone-row"><span>⚖️ Body Weight</span><span>60 kg</span><span>61–62 kg</span><span class="highlight">63–65 kg</span></div>
+                    <div class="milestone-row"><span>📚 Reading (Books)</span><span>10 mins/day</span><span>15 mins/day</span><span class="highlight">20+ mins/day (3 books)</span></div>
+                    <div class="milestone-row"><span>💻 Tech Upskilling</span><span>30 mins/day</span><span>45 mins/day</span><span class="highlight">60 mins/day (1 core skill)</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== WORKOUT TAB ====== -->
+        <section class="tab-content" id="tab-workout">
+            <div class="section-header">
+                <h2 class="section-title">Training Program</h2>
+                <p class="section-subtitle">Push/Pull/Legs + Cardio hybrid split — click a day to view exercises</p>
+            </div>
+
+            <!-- Day Selector -->
+            <div class="workout-day-selector">
+                <button class="workout-day-btn active" data-workout="monday">Mon<br><small>Push</small></button>
+                <button class="workout-day-btn" data-workout="tuesday">Tue<br><small>Zone 2</small></button>
+                <button class="workout-day-btn" data-workout="wednesday">Wed<br><small>Legs</small></button>
+                <button class="workout-day-btn" data-workout="thursday">Thu<br><small>HIIT</small></button>
+                <button class="workout-day-btn" data-workout="friday">Fri<br><small>Pull</small></button>
+                <button class="workout-day-btn" data-workout="saturday">Sat<br><small>Hinge</small></button>
+                <button class="workout-day-btn" data-workout="sunday">Sun<br><small>Rest</small></button>
+            </div>
+
+            <!-- Workout Details -->
+            <div class="workout-panel active" id="workout-monday">
+                <div class="glass-card workout-header-card">
+                    <div class="workout-header-info">
+                        <h3>Monday — Upper Body PUSH + Core</h3>
+                        <div class="workout-meta">
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 60–75 min</span>
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> RPE 6–7</span>
+                            <span class="meta-tag strength">Strength</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-list">
+                    <div class="exercise-card">
+                        <div class="exercise-number">1</div>
+                        <div class="exercise-info">
+                            <h4>Barbell Bench Press <a href="https://www.youtube.com/watch?v=vcBig73ojXs" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Primary compound — control the eccentric</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 8–10</span>
+                            <span class="param-pill rest">120s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">2</div>
+                        <div class="exercise-info">
+                            <h4>Dumbbell Overhead Press (Seated) <a href="https://www.youtube.com/watch?v=HzIiFi_8124" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Full ROM, no arching</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 10–12</span>
+                            <span class="param-pill rest">90s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">3</div>
+                        <div class="exercise-info">
+                            <h4>Incline Dumbbell Press <a href="https://www.youtube.com/watch?v=8iPZUXJnFn4" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">30° incline</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 10–12</span>
+                            <span class="param-pill rest">90s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">4</div>
+                        <div class="exercise-info">
+                            <h4>Cable Lateral Raises <a href="https://www.youtube.com/watch?v=PPrzYc7clV0" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Slow controlled reps</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 12–15</span>
+                            <span class="param-pill rest">60s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">5</div>
+                        <div class="exercise-info">
+                            <h4>Tricep Rope Pushdowns <a href="https://www.youtube.com/watch?v=vB5OHsJ3EME" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Squeeze at bottom</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 12–15</span>
+                            <span class="param-pill rest">60s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">6</div>
+                        <div class="exercise-info">
+                            <h4>Overhead Tricep Extension (Cable) <a href="https://www.youtube.com/watch?v=mCstkGcrv1o" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Stretch at bottom</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">2 × 12–15</span>
+                            <span class="param-pill rest">60s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card core">
+                        <div class="exercise-number">7</div>
+                        <div class="exercise-info">
+                            <h4>Pallof Press <a href="https://www.youtube.com/watch?v=573oPZ_Yn8E" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Squeeze glutes & core; exhale and contract pelvic floor on press (standing)</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 10/side</span>
+                            <span class="param-pill rest">60s rest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="workout-panel" id="workout-tuesday">
+                <div class="glass-card workout-header-card">
+                    <div class="workout-header-info">
+                        <h3>Tuesday — Zone 2 Steady-State Cardio</h3>
+                        <div class="workout-meta">
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 40–50 min</span>
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> Zone 2 (116–136 bpm)</span>
+                            <span class="meta-tag cardio">Cardio</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card zone-info-card">
+                    <div class="zone-visual">
+                        <div class="hr-zone zone2">
+                            <div class="hr-bar" style="width: 65%"></div>
+                            <span class="hr-label">Zone 2: 116–136 bpm</span>
+                        </div>
+                    </div>
+                    <h4>What is Zone 2?</h4>
+                    <p>Zone 2 should feel "too easy" at first — that's correct. You must be able to hold a full conversation. Benefits come from consistency and volume at this intensity, not going faster.</p>
+                    <div class="zone-details-grid">
+                        <div class="zone-detail">
+                            <strong>Mode</strong>
+                            <span>Treadmill incline walk (8–12%), stationary bike, or early AM outdoor jog (before 6:30 AM only in summer)</span>
+                        </div>
+                        <div class="zone-detail">
+                            <strong>Duration</strong>
+                            <span>Wk 1–4: 30 min → Wk 5–8: 35 min → Wk 9–12: 40–45 min</span>
+                        </div>
+                        <div class="zone-detail">
+                            <strong>Goal</strong>
+                            <span>Build aerobic base, mitochondrial density, fat oxidation</span>
+                        </div>
+                        <div class="zone-detail">
+                            <strong>Test</strong>
+                            <span>If you can't talk comfortably, you're going too hard</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.85rem;">+ Full Mobility Routine (10 min) after cardio session</p>
+                </div>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="workout-panel" id="workout-wednesday">
+                <div class="glass-card workout-header-card">
+                    <div class="workout-header-info">
+                        <h3>Wednesday — Lower Body QUAD-Focused</h3>
+                        <div class="workout-meta">
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 60–75 min</span>
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> RPE 6–7</span>
+                            <span class="meta-tag strength">Strength</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-list">
+                    <div class="exercise-card">
+                        <div class="exercise-number">1</div>
+                        <div class="exercise-info"><h4>Barbell Back Squat <a href="https://www.youtube.com/watch?v=U5zrloYWwxw" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Depth to parallel or below</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">4 × 8–10</span><span class="param-pill rest">120s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">2</div>
+                        <div class="exercise-info"><h4>Leg Press <a href="https://www.youtube.com/watch?v=IZxyjW7MP1o" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Feet shoulder-width, full ROM</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 10–12</span><span class="param-pill rest">90s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">3</div>
+                        <div class="exercise-info"><h4>Walking Lunges (DB) <a href="https://www.youtube.com/watch?v=D7KaRcUTQeE" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Upright torso, controlled steps</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 10/leg</span><span class="param-pill rest">90s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">4</div>
+                        <div class="exercise-info"><h4>Leg Extensions <a href="https://www.youtube.com/watch?v=m0GyhcZh_uI" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Squeeze at top, slow negative</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 12–15</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">5</div>
+                        <div class="exercise-info"><h4>Leg Curl (Seated or Lying) <a href="https://www.youtube.com/watch?v=1Tq3Qd1ADQM" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Hamstring balance</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 12–15</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">6</div>
+                        <div class="exercise-info"><h4>Standing Calf Raises <a href="https://www.youtube.com/watch?v=YMmgq8-v51E" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Full stretch at bottom, pause at top</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">4 × 15–20</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                    <div class="exercise-card core">
+                        <div class="exercise-number">7</div>
+                        <div class="exercise-info"><h4>Goblet Deep Squat Hold <a href="https://www.youtube.com/watch?v=MeIiGG7Zgxs" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Deep pelvic stretch — heels flat, drop tailbone, relax muscles (standing stretch)</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 30 sec</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thursday -->
+            <div class="workout-panel" id="workout-thursday">
+                <div class="glass-card workout-header-card">
+                    <div class="workout-header-info">
+                        <h3>Thursday — HIIT / Interval Conditioning</h3>
+                        <div class="workout-meta">
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 30–40 min</span>
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> 85–90% effort</span>
+                            <span class="meta-tag hiit">HIIT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hiit-options">
+                    <div class="glass-card hiit-option">
+                        <h4>🏃 Option A: Treadmill Sprints</h4>
+                        <div class="hiit-breakdown">
+                            <div class="hiit-step warmup"><span>Warm-up</span><span>5 min easy walk @ 5 km/h</span></div>
+                            <div class="hiit-step work"><span>6–8 Rounds</span><span>30s sprint (12–15 km/h) + 60–90s walk</span></div>
+                            <div class="hiit-step cooldown"><span>Cool-down</span><span>5 min walk</span></div>
+                        </div>
+                    </div>
+                    <div class="glass-card hiit-option">
+                        <h4>🏋️ Option B: DB Complex (3 Rounds)</h4>
+                        <div class="hiit-breakdown">
+                            <div class="hiit-step work"><span>DB Thrusters</span><span>30s work / 15s rest</span></div>
+                            <div class="hiit-step work"><span>Jump Squats</span><span>30s work / 15s rest</span></div>
+                            <div class="hiit-step work"><span>DB Renegade Row</span><span>30s work / 15s rest</span></div>
+                            <div class="hiit-step work"><span>Burpees</span><span>30s work / 60s rest (between rounds)</span></div>
+                        </div>
+                    </div>
+                    <div class="glass-card hiit-option">
+                        <h4>🚴 Option C: Stationary Bike Intervals</h4>
+                        <div class="hiit-breakdown">
+                            <div class="hiit-step warmup"><span>Warm-up</span><span>3 min easy cycling</span></div>
+                            <div class="hiit-step work"><span>8–10 Rounds</span><span>20s all-out + 40s easy cycling</span></div>
+                            <div class="hiit-step cooldown"><span>Cool-down</span><span>3 min easy cycling</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="workout-panel" id="workout-friday">
+                <div class="glass-card workout-header-card">
+                    <div class="workout-header-info">
+                        <h3>Friday — Upper Body PULL + Core</h3>
+                        <div class="workout-meta">
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 60–75 min</span>
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> RPE 6–7</span>
+                            <span class="meta-tag strength">Strength</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-list">
+                    <div class="exercise-card">
+                        <div class="exercise-number">1</div>
+                        <div class="exercise-info"><h4>Barbell Bent-Over Row <a href="https://www.youtube.com/watch?v=9efgcAjQe7E" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Chest to bar, squeeze scapulae</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 8–10</span><span class="param-pill rest">120s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">2</div>
+                        <div class="exercise-info"><h4>Pull-Ups or Lat Pulldown <a href="https://www.youtube.com/watch?v=eGo4IYkop8A" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Use assisted if needed; full hang</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 8–12</span><span class="param-pill rest">90s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">3</div>
+                        <div class="exercise-info"><h4>Seated Cable Row <a href="https://www.youtube.com/watch?v=GZbfZ033fEs" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Chest-high, retract scapulae</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 10–12</span><span class="param-pill rest">90s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">4</div>
+                        <div class="exercise-info"><h4>Face Pulls (Rope) <a href="https://www.youtube.com/watch?v=V81_r7D1e78" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">External rotation at top — posture corrector</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 15–20</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">5</div>
+                        <div class="exercise-info"><h4>Dumbbell Bicep Curls <a href="https://www.youtube.com/watch?v=sAq_oXBIec0" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">No swinging</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 10–12</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">6</div>
+                        <div class="exercise-info"><h4>Hammer Curls <a href="https://www.youtube.com/watch?v=TwD-YGVP4Cw" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Forearm + brachialis</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">2 × 12–15</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                    <div class="exercise-card core">
+                        <div class="exercise-number">7</div>
+                        <div class="exercise-info"><h4>Hanging Knee Raises <a href="https://www.youtube.com/watch?v=hdZ7nL_Wj3w" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Controlled hanging core work (saves gym floor space)</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 10–15</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saturday -->
+            <div class="workout-panel" id="workout-saturday">
+                <div class="glass-card workout-header-card">
+                    <div class="workout-header-info">
+                        <h3>Saturday — Lower Body HINGE + Conditioning</h3>
+                        <div class="workout-meta">
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 75–90 min</span>
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> RPE 7–8</span>
+                            <span class="meta-tag hybrid">Hybrid</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-list">
+                    <div class="exercise-card">
+                        <div class="exercise-number">1</div>
+                        <div class="exercise-info"><h4>Conventional Deadlift <a href="https://www.youtube.com/watch?v=VL5Ab0T07e4" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Brace hard, neutral spine</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">4 × 5–8</span><span class="param-pill rest">150s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">2</div>
+                        <div class="exercise-info"><h4>Romanian Deadlift (DB) <a href="https://www.youtube.com/watch?v=jEy_cxkaCHs" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Deep hamstring stretch, hinge pattern</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 10–12</span><span class="param-pill rest">90s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">3</div>
+                        <div class="exercise-info"><h4>Bulgarian Split Squat <a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Rear foot elevated; balance + strength</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 10/leg</span><span class="param-pill rest">90s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">4</div>
+                        <div class="exercise-info"><h4>Hip Thrust (Barbell) <a href="https://www.youtube.com/watch?v=LM8XHLYJoYs" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Squeeze glutes + contract pelvic floor at the top of thrust</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 10–12</span><span class="param-pill rest">90s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">5</div>
+                        <div class="exercise-info"><h4>DB Swings / Sumo Deadlift High Pull <a href="https://www.youtube.com/watch?v=y-wV4HpVIeg" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Explosive hip drive; use heavy dumbbell</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 15</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">6</div>
+                        <div class="exercise-info"><h4>Farmer's Carry <a href="https://www.youtube.com/watch?v=rt1J_a_lpiM" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4><p class="exercise-note">Keep spine neutral, breathe diaphragmatically (deep belly breaths)</p></div>
+                        <div class="exercise-params"><span class="param-pill sets">3 × 40m</span><span class="param-pill rest">60s rest</span></div>
+                    </div>
+
+                </div>
+                <div class="glass-card post-lift-card">
+                    <h4>🚶 Post-Lift Conditioning</h4>
+                    <p>Treadmill Incline Walk — 20–30 min at Zone 2 pace (conversational)</p>
+                    <div class="ruck-progression">
+                        <div class="ruck-phase">Wk 1–4: <strong>10% incline</strong></div>
+                        <div class="ruck-arrow">→</div>
+                        <div class="ruck-phase">Wk 5–8: <strong>12% incline</strong></div>
+                        <div class="ruck-arrow">→</div>
+                        <div class="ruck-phase">Wk 9–12: <strong>15% incline</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sunday -->
+            <div class="workout-panel" id="workout-sunday">
+                <div class="glass-card workout-header-card">
+                    <div class="workout-header-info">
+                        <h3>Sunday — REST & Active Recovery</h3>
+                        <div class="workout-meta">
+                            <span class="meta-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 20–30 min</span>
+                            <span class="meta-tag rest">Rest Day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rest-day-card">
+                    <h4>Active Recovery Protocol</h4>
+                    <div class="rest-activities">
+                        <div class="rest-item">
+                            <span class="rest-icon">🚶</span>
+                            <div>
+                                <strong>Easy Walk</strong>
+                                <span>20–30 min at Zone 1 (&lt;116 bpm)</span>
+                            </div>
+                        </div>
+                        <div class="rest-item">
+                            <span class="rest-icon">🧘</span>
+                            <div>
+                                <strong>Full Mobility Routine</strong>
+                                <span>10 min — all 8 desk worker stretches</span>
+                            </div>
+                        </div>
+                        <div class="rest-item">
+                            <span class="rest-icon">💆</span>
+                            <div>
+                                <strong>Foam Rolling</strong>
+                                <span>10 min on sore areas</span>
+                            </div>
+                        </div>
+                        <div class="rest-item">
+                            <span class="rest-icon">🛁</span>
+                            <div>
+                                <strong>Epsom Salt Bath</strong>
+                                <span>Optional — effective for DOMS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warm-up / Cool-down Card (visible on all workout days) -->
+            <div class="glass-card warmup-card" id="warmupCard">
+                <h3 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    Warm-Up & Cool-Down Protocol
+                </h3>
+                <div class="warmup-cooldown-grid">
+                    <div class="wc-section warmup">
+                        <h4>🔥 Warm-Up (10–12 min)</h4>
+                        <div class="wc-phase">
+                            <strong>RAISE (3–5 min)</strong>
+                            <p>Light cardio: incline walk, rowing, or cycling to 100–120 bpm</p>
+                        </div>
+                        <div class="wc-phase">
+                            <strong>ACTIVATE & MOBILIZE (5 min)</strong>
+                            <p><em>Upper days:</em> Arm circles, band pull-aparts, cat-cow, wall slides, scapular push-ups</p>
+                            <p><em>Lower days:</em> Leg swings, bodyweight squats, hip circles, walking lunges, glute bridges</p>
+                        </div>
+                        <div class="wc-phase">
+                            <strong>POTENTIATE (2–3 min)</strong>
+                            <p>2 progressive warm-up sets: Set 1 @ 50% × 8 reps → Set 2 @ 75% × 5 reps</p>
+                        </div>
+                        <div class="wc-warning">⚠️ NO static stretching before lifting — reduces power by 5–8%</div>
+                    </div>
+                    <div class="wc-section cooldown">
+                        <h4>❄️ Cool-Down (8–10 min)</h4>
+                        <div class="wc-phase">
+                            <strong>LOWER HR (3 min)</strong>
+                            <p>Slow walking or light cycling</p>
+                        </div>
+                        <div class="wc-phase">
+                            <strong>STATIC STRETCHES (5–7 min)</strong>
+                            <p>Quad stretch, hamstring stretch, shoulder stretch, chest stretch, hip flexor lunge, child's pose, spinal twist — 30s each side</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Home Core & Pelvic Routine (Always Visible) -->
+            <div class="glass-card" style="margin-top: 2rem; border-top: 3px solid var(--accent-primary);">
+                <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🏡 Daily Home Core & Pelvic Routine</span>
+                    <span style="font-size: 0.8rem; font-weight: 500; background: rgba(99, 102, 241, 0.15); color: #a78bfa; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">10–12 min</span>
+                </h3>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.25rem; line-height: 1.4;">
+                    Since gym floor space can be cramped, perform these floor-based stability and breathing movements at home (e.g., first thing in the morning upon waking, or right before bed). Focus on deep, controlled movement and proper activation.
+                </p>
+                <div class="exercise-list">
+                    <div class="exercise-card">
+                        <div class="exercise-number">1</div>
+                        <div class="exercise-info">
+                            <h4>Diaphragmatic Breathing <a href="https://www.youtube.com/watch?v=UXy129_N-K0" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Lie on your back, hands on belly. Expand abdomen on inhale, release on exhale.</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">10 deep breaths</span>
+                            <span class="param-pill rest">Focus: Relaxation</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">2</div>
+                        <div class="exercise-info">
+                            <h4>Dead Bug (Core & Pelvic Stability) <a href="https://www.youtube.com/watch?v=g_BYB0R-4Ws" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Keep lower back flat. Exhale, draw lower belly in, and engage pelvic floor as you extend limbs.</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 8–10 / side</span>
+                            <span class="param-pill rest">60s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">3</div>
+                        <div class="exercise-info">
+                            <h4>Glute Bridges (Pelvic Focus) <a href="https://www.youtube.com/watch?v=wPM8co451BE" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Drive through heels. Contract pelvic floor at the top of the bridge, fully relax at the bottom.</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 12 reps</span>
+                            <span class="param-pill rest">60s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">4</div>
+                        <div class="exercise-info">
+                            <h4>Bird-Dogs (Rotational Stability) <a href="https://www.youtube.com/watch?v=wiF5qL-lZ9g" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Extend opposite arm/leg. Exhale and lift the pelvic floor as you extend; keep hips square.</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">3 × 10 / side</span>
+                            <span class="param-pill rest">60s rest</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-number">5</div>
+                        <div class="exercise-info">
+                            <h4>Happy Baby Stretch & Belly Breaths <a href="https://www.youtube.com/watch?v=1b5N2sXhUrc" target="_blank" class="video-link" title="Watch Form Video">▶️</a></h4>
+                            <p class="exercise-note">Cool-down stretch. Fully release and open the pelvic floor and hips while taking deep belly breaths.</p>
+                        </div>
+                        <div class="exercise-params">
+                            <span class="param-pill sets">2 × 45 sec</span>
+                            <span class="param-pill rest">Focus: Release</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== NUTRITION TAB ====== -->
+        <section class="tab-content" id="tab-nutrition">
+            <div class="section-header">
+                <h2 class="section-title">Nutrition Plan</h2>
+                <p class="section-subtitle">Indian eggetarian meals — easy to cook, high protein, budget-friendly</p>
+            </div>
+
+            <!-- Macro Overview -->
+            <div class="glass-card macro-overview">
+                <h3 class="card-title">Daily Macro Targets (~2,650 kcal)</h3>
+                <div class="macro-bars">
+                    <div class="macro-bar-item">
+                        <div class="macro-bar-header">
+                            <span class="macro-name">Protein</span>
+                            <span class="macro-value">108g <small>(1.8g/kg)</small></span>
+                        </div>
+                        <div class="macro-bar-track">
+                            <div class="macro-bar-fill protein" style="width: 16%"></div>
+                        </div>
+                        <span class="macro-cal">432 kcal — 16%</span>
+                    </div>
+                    <div class="macro-bar-item">
+                        <div class="macro-bar-header">
+                            <span class="macro-name">Carbohydrates</span>
+                            <span class="macro-value">330g <small>(5.5g/kg)</small></span>
+                        </div>
+                        <div class="macro-bar-track">
+                            <div class="macro-bar-fill carbs" style="width: 50%"></div>
+                        </div>
+                        <span class="macro-cal">1,320 kcal — 50%</span>
+                    </div>
+                    <div class="macro-bar-item">
+                        <div class="macro-bar-header">
+                            <span class="macro-name">Fats</span>
+                            <span class="macro-value">100g <small>(1.5g/kg)</small></span>
+                        </div>
+                        <div class="macro-bar-track">
+                            <div class="macro-bar-fill fats" style="width: 34%"></div>
+                        </div>
+                        <span class="macro-cal">900 kcal — 34%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meal Day Selector -->
+            <div class="meal-day-selector">
+                <button class="meal-day-btn active" data-meal="day1">Day 1<br><small>Egg & Dal</small></button>
+                <button class="meal-day-btn" data-meal="day2">Day 2<br><small>Soya</small></button>
+                <button class="meal-day-btn" data-meal="day3">Day 3<br><small>Chole</small></button>
+                <button class="meal-day-btn" data-meal="day4">Day 4<br><small>Rajma</small></button>
+                <button class="meal-day-btn" data-meal="day5">Day 5<br><small>Paneer</small></button>
+                <button class="meal-day-btn" data-meal="day6">Day 6<br><small>Variety</small></button>
+                <button class="meal-day-btn" data-meal="day7">Day 7<br><small>Rest Day</small></button>
+            </div>
+
+            <!-- Meal Plans -->
+            <div class="meal-panel active" id="meal-day1">
+                <div class="meal-day-summary">
+                    <span class="meal-day-total">~107g protein | ~2,600 kcal</span>
+                </div>
+                <div class="meals-list">
+                    <div class="meal-card">
+                        <div class="meal-time">7:30 AM</div>
+                        <div class="meal-info">
+                            <h4>🍳 Breakfast — Masala Omelette</h4>
+                            <ul>
+                                <li>3 whole eggs + 2 egg whites → Masala Omelette (onion, tomato, green chili)</li>
+                                <li>2 whole wheat toasts with butter (1 tsp)</li>
+                                <li>1 glass toned milk (250ml)</li>
+                            </ul>
+                        </div>
+                        <div class="meal-macros">
+                            <span class="meal-protein">~30g protein</span>
+                            <span class="meal-cals">~550 kcal</span>
+                        </div>
+                    </div>
+                    <div class="meal-card snack">
+                        <div class="meal-time">10:30 AM</div>
+                        <div class="meal-info">
+                            <h4>🥜 Mid-Morning Snack</h4>
+                            <ul>
+                                <li>1 banana + 2 tbsp peanut butter</li>
+                                <li>Green tea</li>
+                            </ul>
+                        </div>
+                        <div class="meal-macros">
+                            <span class="meal-protein">~12g protein</span>
+                            <span class="meal-cals">~250 kcal</span>
+                        </div>
+                    </div>
+                    <div class="meal-card">
+                        <div class="meal-time">1:30 PM</div>
+                        <div class="meal-info">
+                            <h4>🍚 Lunch — Dal Chawal</h4>
+                            <ul>
+                                <li>1.5 cups cooked rice</li>
+                                <li>1 bowl thick Moong Dal (50g dry)</li>
+                                <li>1 bowl mixed vegetable sabzi</li>
+                                <li>1 bowl curd (150g) + Salad</li>
+                            </ul>
+                        </div>
+                        <div class="meal-macros">
+                            <span class="meal-protein">~25g protein</span>
+                            <span class="meal-cals">~650 kcal</span>
+                        </div>
+                    </div>
+                    <div class="meal-card snack">
+                        <div class="meal-time">5:30 PM</div>
+                        <div class="meal-info">
+                            <h4>⚡ Pre-Workout Snack</h4>
+                            <ul>
+                                <li>1 banana + handful roasted chana (30g)</li>
+                                <li>200ml buttermilk</li>
+                            </ul>
+                        </div>
+                        <div class="meal-macros">
+                            <span class="meal-protein">~10g protein</span>
+                            <span class="meal-cals">~250 kcal</span>
+                        </div>
+                    </div>
+                    <div class="meal-card">
+                        <div class="meal-time">9:00 PM</div>
+                        <div class="meal-info">
+                            <h4>🍽️ Dinner (Post-Workout) — Egg Bhurji</h4>
+                            <ul>
+                                <li>Egg Bhurji (3 eggs with onion, tomato, capsicum)</li>
+                                <li>2 whole wheat rotis + small bowl dal/sabzi</li>
+                                <li>1 glass milk before bed</li>
+                            </ul>
+                        </div>
+                        <div class="meal-macros">
+                            <span class="meal-protein">~30g protein</span>
+                            <span class="meal-cals">~650 kcal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meal-panel" id="meal-day2">
+                <div class="meal-day-summary"><span class="meal-day-total">~111g protein | ~2,600 kcal</span></div>
+                <div class="meals-list">
+                    <div class="meal-card"><div class="meal-time">7:30 AM</div><div class="meal-info"><h4>🥣 Masala Oats + Eggs</h4><ul><li>Masala Oats (50g oats + 200ml milk + veggies)</li><li>2 boiled eggs + 5-6 soaked almonds</li></ul></div><div class="meal-macros"><span class="meal-protein">~28g</span><span class="meal-cals">~500 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">10:30 AM</div><div class="meal-info"><h4>🥛 Greek Yogurt Bowl</h4><ul><li>200g Greek Yogurt + 1 tbsp honey + walnuts</li></ul></div><div class="meal-macros"><span class="meal-protein">~15g</span><span class="meal-cals">~250 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">1:30 PM</div><div class="meal-info"><h4>🍛 Soya Chunk Curry</h4><ul><li>50g dry soya chunks in onion-tomato gravy</li><li>2 rotis + raita + salad</li></ul></div><div class="meal-macros"><span class="meal-protein">~30g</span><span class="meal-cals">~700 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">5:30 PM</div><div class="meal-info"><h4>⚡ Pre-Workout</h4><ul><li>1 banana + 1 boiled egg</li></ul></div><div class="meal-macros"><span class="meal-protein">~10g</span><span class="meal-cals">~200 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">9:00 PM</div><div class="meal-info"><h4>🧀 Paneer Bhurji + Rice</h4><ul><li>100g paneer bhurji + 1.5 cups rice or 2 rotis</li><li>Mixed dal + salad</li></ul></div><div class="meal-macros"><span class="meal-protein">~28g</span><span class="meal-cals">~650 kcal</span></div></div>
+                </div>
+            </div>
+
+            <div class="meal-panel" id="meal-day3">
+                <div class="meal-day-summary"><span class="meal-day-total">~112g protein | ~2,650 kcal</span></div>
+                <div class="meals-list">
+                    <div class="meal-card"><div class="meal-time">7:30 AM</div><div class="meal-info"><h4>🥚 Egg Paratha</h4><ul><li>3 Egg Paratha (whole wheat atta, 3 eggs scrambled inside)</li><li>1 bowl curd (150g) + 1 glass milk</li></ul></div><div class="meal-macros"><span class="meal-protein">~27g</span><span class="meal-cals">~550 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">10:30 AM</div><div class="meal-info"><h4>🍎 Nuts & Fruit</h4><ul><li>Handful mixed nuts (30g) + 1 apple/guava</li></ul></div><div class="meal-macros"><span class="meal-protein">~8g</span><span class="meal-cals">~200 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">1:30 PM</div><div class="meal-info"><h4>🫘 Chole + Roti</h4><ul><li>Chole (75g dry chickpeas, cooked) + 2 rotis</li><li>Onion-tomato salad + curd</li></ul></div><div class="meal-macros"><span class="meal-protein">~25g</span><span class="meal-cals">~700 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">5:30 PM</div><div class="meal-info"><h4>⚡ PB Toast + Banana</h4><ul><li>2 tbsp PB + 1 toast + 1 banana</li></ul></div><div class="meal-macros"><span class="meal-protein">~12g</span><span class="meal-cals">~250 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">9:00 PM</div><div class="meal-info"><h4>🥘 Egg Curry + Rice</h4><ul><li>3 boiled eggs in onion-tomato gravy + 1.5 cups rice</li><li>Small bowl palak sabzi</li></ul></div><div class="meal-macros"><span class="meal-protein">~32g</span><span class="meal-cals">~650 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">10:30 PM</div><div class="meal-info"><h4>🥛 Bedtime</h4><ul><li>1 glass warm milk + pinch turmeric</li></ul></div><div class="meal-macros"><span class="meal-protein">~8g</span><span class="meal-cals">~150 kcal</span></div></div>
+                </div>
+            </div>
+
+            <div class="meal-panel" id="meal-day4">
+                <div class="meal-day-summary"><span class="meal-day-total">~108g protein | ~2,650 kcal</span></div>
+                <div class="meals-list">
+                    <div class="meal-card"><div class="meal-time">7:30 AM</div><div class="meal-info"><h4>🥞 Besan Cheela + Eggs</h4><ul><li>2 Besan Cheela (40g besan) stuffed with 2 scrambled eggs</li><li>1 glass milk + 1 tbsp flaxseeds</li></ul></div><div class="meal-macros"><span class="meal-protein">~30g</span><span class="meal-cals">~550 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">10:30 AM</div><div class="meal-info"><h4>🥛 Greek Yogurt + Chana</h4><ul><li>200g Greek Yogurt + roasted chana (30g)</li></ul></div><div class="meal-macros"><span class="meal-protein">~15g</span><span class="meal-cals">~300 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">1:30 PM</div><div class="meal-info"><h4>🫘 Rajma Chawal</h4><ul><li>Rajma (75g dry, cooked) + 1.5 cups rice</li><li>Curd/raita + salad</li></ul></div><div class="meal-macros"><span class="meal-protein">~25g</span><span class="meal-cals">~700 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">5:30 PM</div><div class="meal-info"><h4>⚡ Banana + Almonds</h4><ul><li>1 banana + handful almonds (15g)</li></ul></div><div class="meal-macros"><span class="meal-protein">~8g</span><span class="meal-cals">~200 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">9:00 PM</div><div class="meal-info"><h4>🍛 Soya Stir-fry + Roti</h4><ul><li>Soya Chunk Stir-fry (50g dry) + 2 rotis</li><li>1 bowl dal + 1 glass milk before bed</li></ul></div><div class="meal-macros"><span class="meal-protein">~30g</span><span class="meal-cals">~650 kcal</span></div></div>
+                </div>
+            </div>
+
+            <div class="meal-panel" id="meal-day5">
+                <div class="meal-day-summary"><span class="meal-day-total">~111g protein | ~2,650 kcal</span></div>
+                <div class="meals-list">
+                    <div class="meal-card"><div class="meal-time">7:30 AM</div><div class="meal-info"><h4>🥣 Overnight Oats</h4><ul><li>50g oats + 200ml milk + 1 tbsp PB + chia seeds (soaked)</li><li>2 boiled eggs on the side</li></ul></div><div class="meal-macros"><span class="meal-protein">~28g</span><span class="meal-cals">~500 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">10:30 AM</div><div class="meal-info"><h4>🍎 Fruit + Nuts</h4><ul><li>1 fruit + handful mixed nuts (30g)</li></ul></div><div class="meal-macros"><span class="meal-protein">~7g</span><span class="meal-cals">~200 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">1:30 PM</div><div class="meal-info"><h4>🧀 Paneer Tikka + Dal</h4><ul><li>Paneer Tikka/Dry Paneer (120g) + 2 rotis</li><li>1 bowl dal + salad + curd</li></ul></div><div class="meal-macros"><span class="meal-protein">~30g</span><span class="meal-cals">~700 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">5:30 PM</div><div class="meal-info"><h4>⚡ Banana + Egg</h4><ul><li>Banana + boiled egg + green tea</li></ul></div><div class="meal-macros"><span class="meal-protein">~10g</span><span class="meal-cals">~250 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">9:00 PM</div><div class="meal-info"><h4>🍚 Egg Fried Rice</h4><ul><li>1.5 cups rice + 3 eggs + mixed veggies + soy sauce</li><li>1 bowl tomato soup or rasam</li></ul></div><div class="meal-macros"><span class="meal-protein">~28g</span><span class="meal-cals">~650 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">10:30 PM</div><div class="meal-info"><h4>🥛 Bedtime</h4><ul><li>1 glass milk</li></ul></div><div class="meal-macros"><span class="meal-protein">~8g</span><span class="meal-cals">~150 kcal</span></div></div>
+                </div>
+            </div>
+
+            <div class="meal-panel" id="meal-day6">
+                <div class="meal-day-summary"><span class="meal-day-total">~108g protein | ~2,650 kcal</span></div>
+                <div class="meals-list">
+                    <div class="meal-card"><div class="meal-time">8:30 AM</div><div class="meal-info"><h4>🧀 Paneer Paratha</h4><ul><li>Stuffed Paneer Paratha (50g paneer) + 2 boiled eggs</li><li>1 glass lassi/buttermilk</li></ul></div><div class="meal-macros"><span class="meal-protein">~30g</span><span class="meal-cals">~550 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">11:00 AM</div><div class="meal-info"><h4>🌱 Sprouts Chaat</h4><ul><li>Moong sprouts + onion + lemon + chaat masala</li></ul></div><div class="meal-macros"><span class="meal-protein">~10g</span><span class="meal-cals">~250 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">1:30 PM</div><div class="meal-info"><h4>🍛 Soya Biryani</h4><ul><li>50g dry soya + 1.5 cups rice + biryani masala</li><li>Raita (200g curd + onion) + salad</li></ul></div><div class="meal-macros"><span class="meal-protein">~28g</span><span class="meal-cals">~700 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">5:30 PM</div><div class="meal-info"><h4>⚡ PB Banana Smoothie</h4><ul><li>1 banana + 1 tbsp PB + 200ml milk</li></ul></div><div class="meal-macros"><span class="meal-protein">~12g</span><span class="meal-cals">~250 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">9:00 PM</div><div class="meal-info"><h4>🍛 Dal Makhani + Egg Bhurji</h4><ul><li>Dal Makhani (50g urad dal + rajma) + 2 rotis</li><li>Egg Bhurji (2 eggs) + salad</li></ul></div><div class="meal-macros"><span class="meal-protein">~28g</span><span class="meal-cals">~650 kcal</span></div></div>
+                </div>
+            </div>
+
+            <div class="meal-panel" id="meal-day7">
+                <div class="meal-day-summary"><span class="meal-day-total">~108g protein | ~2,600 kcal</span></div>
+                <div class="meals-list">
+                    <div class="meal-card"><div class="meal-time">9:00 AM</div><div class="meal-info"><h4>🍞 French Toast + Yogurt</h4><ul><li>2 slices bread dipped in 3 eggs + milk</li><li>200g Greek Yogurt with honey + dry fruits</li></ul></div><div class="meal-macros"><span class="meal-protein">~32g</span><span class="meal-cals">~600 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">11:30 AM</div><div class="meal-info"><h4>🍌 Fruit Bowl</h4><ul><li>Banana, apple, pomegranate + 10 almonds</li></ul></div><div class="meal-macros"><span class="meal-protein">~8g</span><span class="meal-cals">~200 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">1:30 PM</div><div class="meal-info"><h4>🫘 Chole/Rajma Chawal</h4><ul><li>Chole with 2 Bhature (whole wheat) OR Rajma Chawal</li><li>Paneer tikka pieces (50g) + curd + salad</li></ul></div><div class="meal-macros"><span class="meal-protein">~30g</span><span class="meal-cals">~750 kcal</span></div></div>
+                    <div class="meal-card snack"><div class="meal-time">5:00 PM</div><div class="meal-info"><h4>🫧 Makhana + Egg</h4><ul><li>Roasted makhana (30g) + green tea + 1 boiled egg</li></ul></div><div class="meal-macros"><span class="meal-protein">~10g</span><span class="meal-cals">~200 kcal</span></div></div>
+                    <div class="meal-card"><div class="meal-time">8:30 PM</div><div class="meal-info"><h4>🍛 Egg Curry + Dal</h4><ul><li>Egg Curry (2 eggs) + Dal + 2 rotis</li><li>Seasonal vegetable sabzi + 1 glass milk</li></ul></div><div class="meal-macros"><span class="meal-protein">~28g</span><span class="meal-cals">~600 kcal</span></div></div>
+                </div>
+            </div>
+
+            <!-- Grocery List -->
+            <div class="glass-card grocery-card">
+                <h3 class="card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Weekly Grocery List — ₹2,200–2,800/week
+                </h3>
+                <div class="grocery-grid">
+                    <div class="grocery-category">
+                        <h4>🥚 Proteins</h4>
+                        <ul>
+                            <li>Eggs (30-tray) — ₹200-250</li>
+                            <li>Paneer 500g — ₹200-250</li>
+                            <li>Soya Chunks 500g — ₹80-100</li>
+                            <li>Mixed Dal 1 kg — ₹120-160</li>
+                            <li>Rajma 500g — ₹80-100</li>
+                            <li>Chole 500g — ₹70-90</li>
+                            <li>Peanut Butter 500g — ₹200-300</li>
+                            <li>Greek Yogurt 400g — ₹200-250</li>
+                        </ul>
+                    </div>
+                    <div class="grocery-category">
+                        <h4>🌾 Carbs & Staples</h4>
+                        <ul>
+                            <li>Whole Wheat Atta 2 kg — ₹80-100</li>
+                            <li>Rice 2 kg — ₹100-140</li>
+                            <li>Oats 500g — ₹100-120</li>
+                            <li>Bread 1 loaf — ₹40-50</li>
+                            <li>Bananas 1 dozen — ₹50-60</li>
+                            <li>Seasonal Fruits 1 kg — ₹80-120</li>
+                        </ul>
+                    </div>
+                    <div class="grocery-category">
+                        <h4>🥬 Vegetables</h4>
+                        <ul>
+                            <li>Onions 1 kg — ₹30-40</li>
+                            <li>Tomatoes 1 kg — ₹30-50</li>
+                            <li>Green Veggies 1.5 kg — ₹100-150</li>
+                            <li>Ginger, Garlic, Chili — ₹30-40</li>
+                            <li>Lemons 6-8 — ₹20-30</li>
+                        </ul>
+                    </div>
+                    <div class="grocery-category">
+                        <h4>🥛 Dairy & Dry Fruits</h4>
+                        <ul>
+                            <li>Toned Milk 7L — ₹350-400</li>
+                            <li>Butter/Ghee 200g — ₹100-120</li>
+                            <li>Almonds 100g — ₹100-120</li>
+                            <li>Walnuts 50g — ₹60-80</li>
+                            <li>Flaxseeds 100g — ₹30-40</li>
+                            <li>Roasted Chana 250g — ₹40-50</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ====== DAILY ROUTINE TAB ====== -->
+        <section class="tab-content" id="tab-routine">
+            <div class="section-header">
+                <h2 class="section-title">Daily Routine</h2>
+                <p class="section-subtitle">Your optimized day — from wake-up to bedtime</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item wake">
+                        <div class="timeline-time">6:30 AM</div>
+                        <div class="timeline-content">
+                            <h4>⏰ Wake Up</h4>
+                            <ul>
+                                <li>500ml warm water + lemon</li>
+                                <li>10 min Home Core & Pelvic routine</li>
+                                <li>Take Vitamin B12</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item gym">
+                        <div class="timeline-time">7:00 AM</div>
+                        <div class="timeline-content">
+                            <h4>🏋️ Gym Session</h4>
+                            <ul>
+                                <li>Warm-up (10-12 min)</li>
+                                <li>Main workout (45-60 min)</li>
+                                <li>Cool-down (8-10 min)</li>
+                                <li>5g Creatine (in water)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item meal">
+                        <div class="timeline-time">7:30 AM</div>
+                        <div class="timeline-content">
+                            <h4>🍳 Breakfast (Post-Workout)</h4>
+                            <ul>
+                                <li>25-30g protein meal</li>
+                                <li>Take Vitamin D3 with meal</li>
+                                <li>Take Omega-3 with meal</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item work">
+                        <div class="timeline-time">10:30 AM</div>
+                        <div class="timeline-content">
+                            <h4>💼 Office + Snack</h4>
+                            <ul>
+                                <li>Mid-morning snack at desk</li>
+                                <li>Keep water bottle filled</li>
+                                <li>Set micro-break timer (every 60-90 min)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item break">
+                        <div class="timeline-time">12:00 PM</div>
+                        <div class="timeline-content">
+                            <h4>🧘 Micro-Break</h4>
+                            <ul>
+                                <li>10 bodyweight squats</li>
+                                <li>30s hip flexor stretch per side</li>
+                                <li>10 shoulder circles</li>
+                                <li>Walk for 2 min</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item meal">
+                        <div class="timeline-time">1:30 PM</div>
+                        <div class="timeline-content">
+                            <h4>🍚 Lunch</h4>
+                            <ul>
+                                <li>25-30g protein meal</li>
+                                <li>250ml water with meal</li>
+                                <li>Include vegetables & salad</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item break">
+                        <div class="timeline-time">3:30 PM</div>
+                        <div class="timeline-content">
+                            <h4>🧘 Micro-Break</h4>
+                            <ul>
+                                <li>30s chest opener stretch</li>
+                                <li>10 chin tucks</li>
+                                <li>Walk for 2 min</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item meal">
+                        <div class="timeline-time">5:30 PM</div>
+                        <div class="timeline-content">
+                            <h4>⚡ Pre-Workout Snack</h4>
+                            <ul>
+                                <li>Banana + protein source</li>
+                                <li>400-500ml water</li>
+                                <li><em>If morning gym: skip this</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item work">
+                        <div class="timeline-time">7:00 PM</div>
+                        <div class="timeline-content">
+                            <h4>🏠 Leave Office</h4>
+                            <ul>
+                                <li>Optional: Evening gym if not morning</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item meal">
+                        <div class="timeline-time">9:00 PM</div>
+                        <div class="timeline-content">
+                            <h4>🍽️ Dinner</h4>
+                            <ul>
+                                <li>25-30g protein post-workout meal</li>
+                                <li>Include carbs for recovery</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item growth">
+                        <div class="timeline-time">9:30 PM</div>
+                        <div class="timeline-content">
+                            <h4>💡 Growth & Upskilling</h4>
+                            <ul>
+                                <li><strong>45 min: Technical Upskilling</strong> (Coding, system design, or course work)</li>
+                                <li><strong>15 min: Mindful Reading</strong> (Non-fiction, professional growth, or business books)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item evening">
+                        <div class="timeline-time">10:30 PM</div>
+                        <div class="timeline-content">
+                            <h4>🌙 Wind Down</h4>
+                            <ul>
+                                <li>10 min evening relaxation stretches & deep breathing</li>
+                                <li>Magnesium supplement (if taking)</li>
+                                <li>1 glass warm milk</li>
+                                <li>No screens 30 min before bed</li>
+                                <li>Dim lights, cool room (18–20°C)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item sleep">
+                        <div class="timeline-time">11:00 PM</div>
+                        <div class="timeline-content">
+                            <h4>😴 Sleep</h4>
+                            <ul>
+                                <li>Target: 7.5–8 hours</li>
+                                <li>Same time ±30 min daily</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobility Routine -->
+            <div class="glass-card">
+                <h3 class="card-title">🖥️ Desk Worker Mobility Protocol — 10 min daily</h3>
+                <div class="mobility-grid">
+                    <div class="mobility-exercise"><strong>Cat-Cow</strong><span>10 reps</span><span class="mobility-target">Entire spine</span></div>
+                    <div class="mobility-exercise"><strong>Hip Flexor Lunge Stretch</strong><span>30s / side</span><span class="mobility-target">Hip flexors, psoas</span></div>
+                    <div class="mobility-exercise"><strong>90/90 Hip Switch</strong><span>8 reps / side</span><span class="mobility-target">Hip rotation</span></div>
+                    <div class="mobility-exercise"><strong>Thoracic Spine Rotation</strong><span>8 reps / side</span><span class="mobility-target">Mid-back</span></div>
+                    <div class="mobility-exercise"><strong>Wall Slides</strong><span>10 reps</span><span class="mobility-target">Shoulders</span></div>
+                    <div class="mobility-exercise"><strong>Chest Doorway Stretch</strong><span>30s / side</span><span class="mobility-target">Pectorals</span></div>
+                    <div class="mobility-exercise"><strong>Seated Figure-4 Stretch</strong><span>30s / side</span><span class="mobility-target">Glutes</span></div>
+                    <div class="mobility-exercise"><strong>Neck Circles + Chin Tucks</strong><span>10 reps each</span><span class="mobility-target">Cervical spine</span></div>
+                </div>
+            </div>
+
+            <!-- Hydration -->
+            <div class="glass-card">
+                <h3 class="card-title">💧 Hydration Schedule — 3–3.5 Liters Daily</h3>
+                <div class="hydration-timeline">
+                    <div class="hydration-item"><span class="h-time">7:00 AM</span><span class="h-amount">500ml</span><span>Warm water + lemon</span></div>
+                    <div class="hydration-item"><span class="h-time">Breakfast</span><span class="h-amount">250ml</span><span>With meal</span></div>
+                    <div class="hydration-item"><span class="h-time">Morning</span><span class="h-amount">500ml</span><span>Keep bottle at desk</span></div>
+                    <div class="hydration-item"><span class="h-time">Lunch</span><span class="h-amount">250ml</span><span>With meal</span></div>
+                    <div class="hydration-item"><span class="h-time">Afternoon</span><span class="h-amount">500ml</span><span>Office — refill bottle</span></div>
+                    <div class="hydration-item"><span class="h-time">Pre-Workout</span><span class="h-amount">500ml</span><span>1-2 hrs before gym</span></div>
+                    <div class="hydration-item"><span class="h-time">During Workout</span><span class="h-amount">500-750ml</span><span>Sip every 15-20 min</span></div>
+                    <div class="hydration-item"><span class="h-time">Post-Workout</span><span class="h-amount">500ml</span><span>Rehydrate immediately</span></div>
+                    <div class="hydration-item"><span class="h-time">Dinner</span><span class="h-amount">250ml</span><span>With meal</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SUPPLEMENTS TAB ====== -->
+        <section class="tab-content" id="tab-supplements">
+            <div class="section-header">
+                <h2 class="section-title">Supplements</h2>
+                <p class="section-subtitle">Evidence-based essentials — priority tiers with Indian brand recommendations</p>
+            </div>
+
+            <div class="glass-card">
+                <h3 class="card-title" style="color: #f59e0b;">🥇 Priority Tier — Highly Recommended</h3>
+                <div class="supplement-grid">
+                    <div class="supplement-card">
+                        <div class="supp-header">
+                            <h4>Creatine Monohydrate</h4>
+                            <span class="supp-cost">₹300-500/mo</span>
+                        </div>
+                        <div class="supp-dosage">5g/day — any time, daily</div>
+                        <p>Most researched supplement for strength & muscle. Vegetarians respond even better due to lower baseline creatine stores.</p>
+                        <div class="supp-brands">Brands: Fast&Up, MuscleBlaze, ON</div>
+                    </div>
+                    <div class="supplement-card">
+                        <div class="supp-header">
+                            <h4>Vitamin D3</h4>
+                            <span class="supp-cost">₹200-400/mo</span>
+                        </div>
+                        <div class="supp-dosage">1,500-2,000 IU/day — with fat-containing meal</div>
+                        <p>70-80% of Indians are deficient. Essential for muscle function, immunity, mood. Get blood levels tested.</p>
+                        <div class="supp-brands">Brands: HealthKart, Carbamide Forte</div>
+                    </div>
+                    <div class="supplement-card">
+                        <div class="supp-header">
+                            <h4>Vitamin B12</h4>
+                            <span class="supp-cost">₹200-300/mo</span>
+                        </div>
+                        <div class="supp-dosage">500-1,000 mcg/day — morning</div>
+                        <p>Eggs provide some B12, but supplementation ensures adequacy. Critical for energy and nerve health.</p>
+                        <div class="supp-brands">Brands: HealthKart, Carbamide Forte</div>
+                    </div>
+                    <div class="supplement-card">
+                        <div class="supp-header">
+                            <h4>Omega-3 (Algal Oil)</h4>
+                            <span class="supp-cost">₹500-800/mo</span>
+                        </div>
+                        <div class="supp-dosage">500-1,000 mg EPA+DHA — with meals</div>
+                        <p>Vegetarian omega-3 source. Reduces inflammation, supports recovery. Flaxseeds provide ALA but conversion to EPA/DHA is poor (~5%).</p>
+                        <div class="supp-brands">Brands: Boldfit, Wellbeing Nutrition</div>
+                    </div>
+                </div>
+                <div class="supp-total">
+                    <strong>Total Priority Tier: ₹1,200–2,000/month</strong>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h3 class="card-title" style="color: #94a3b8;">🥈 Secondary Tier — Nice to Have</h3>
+                <div class="supplement-grid secondary">
+                    <div class="supplement-card secondary">
+                        <div class="supp-header"><h4>Whey Protein</h4><span class="supp-cost">₹800-1,200/mo</span></div>
+                        <div class="supp-dosage">1 scoop (24-25g protein) — only if struggling to hit target</div>
+                        <div class="supp-brands">Brands: MuscleBlaze, AS-IT-IS, Myprotein</div>
+                    </div>
+                    <div class="supplement-card secondary">
+                        <div class="supp-header"><h4>Magnesium</h4><span class="supp-cost">₹200-300/mo</span></div>
+                        <div class="supp-dosage">200-400mg — before bed</div>
+                        <p>Helps sleep quality, muscle recovery, reduces cramps.</p>
+                    </div>
+                    <div class="supplement-card secondary">
+                        <div class="supp-header"><h4>Zinc</h4><span class="supp-cost">₹150-200/mo</span></div>
+                        <div class="supp-dosage">15mg — supports testosterone, immunity</div>
+                    </div>
+                    <div class="supplement-card secondary">
+                        <div class="supp-header"><h4>Ashwagandha (KSM-66)</h4><span class="supp-cost">₹300-500/mo</span></div>
+                        <div class="supp-dosage">300-600mg — may support testosterone, reduce cortisol</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h3 class="card-title">⏰ Supplement Timing Cheat Sheet</h3>
+                <div class="timing-grid">
+                    <div class="timing-row"><span class="timing-when">☀️ Morning (with breakfast)</span><span>Vitamin B12 + Vitamin D3</span></div>
+                    <div class="timing-row"><span class="timing-when">🕐 Any time</span><span>Creatine 5g (mix in water — timing doesn't matter)</span></div>
+                    <div class="timing-row"><span class="timing-when">🍽️ With meals</span><span>Omega-3</span></div>
+                    <div class="timing-row"><span class="timing-when">🌙 Before bed</span><span>Magnesium (if taking)</span></div>
+                </div>
+            </div>
+
+            <div class="glass-card warning-card">
+                <h3>⚠️ Before Starting Supplements</h3>
+                <p>Get blood work done: <strong>Vitamin D, B12, Iron, and Thyroid levels</strong>. This helps you know what you actually need and avoids unnecessary supplementation.</p>
+            </div>
+        </section>
+
+        <!-- ====== PROGRESS TAB ====== -->
+        <section class="tab-content" id="tab-progress">
+            <div class="section-header">
+                <h2 class="section-title">Track Your Progress</h2>
+                <p class="section-subtitle">Daily checklist & recovery signals — stay consistent and accountable</p>
+            </div>
+
+            <div class="glass-card">
+                <h3 class="card-title">📋 Daily Checklist</h3>
+                <div class="checklist" id="dailyChecklist">
+                    <label class="check-item"><input type="checkbox" id="check-eggs"><span class="checkmark"></span><span>3–4 whole eggs consumed</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-protein-source"><span class="checkmark"></span><span>1 serving soya/paneer/dal/rajma/chole</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-protein-total"><span class="checkmark"></span><span>108g+ protein hit</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-water"><span class="checkmark"></span><span>3+ liters water consumed</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-creatine"><span class="checkmark"></span><span>5g creatine taken</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-vitamins"><span class="checkmark"></span><span>Vitamin D3 + B12 taken with breakfast</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-preworkout"><span class="checkmark"></span><span>Pre-workout snack eaten 60-90 min before gym</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-postworkout"><span class="checkmark"></span><span>Post-workout meal within 90 min</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-veggies"><span class="checkmark"></span><span>Vegetables/salad with at least 2 meals</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-fruit"><span class="checkmark"></span><span>1 fruit consumed</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-sleep"><span class="checkmark"></span><span>7.5+ hours sleep</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-pelvic"><span class="checkmark"></span><span>10 min Home Core & Pelvic routine completed</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-mobility"><span class="checkmark"></span><span>Mobility/stretching done</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-upskilling"><span class="checkmark"></span><span>45 min Upskilling / Tech Learning</span></label>
+                    <label class="check-item"><input type="checkbox" id="check-reading"><span class="checkmark"></span><span>15 min Mindful/Tech Book Reading</span></label>
+                </div>
+                <div class="checklist-progress">
+                    <div class="checklist-bar">
+                        <div class="checklist-fill" id="checklistFill" style="width: 0%"></div>
+                    </div>
+                    <span class="checklist-count" id="checklistCount">0 / 15 completed</span>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h3 class="card-title">🚨 Signs You Need an Unplanned Deload</h3>
+                <div class="deload-signs">
+                    <div class="deload-sign">
+                        <span class="sign-icon">⚠️</span>
+                        <span>Lifts feeling 20%+ heavier than normal for 2+ sessions</span>
+                    </div>
+                    <div class="deload-sign">
+                        <span class="sign-icon">🔴</span>
+                        <span>Persistent joint pain (not just DOMS)</span>
+                    </div>
+                    <div class="deload-sign">
+                        <span class="sign-icon">😴</span>
+                        <span>Poor sleep quality for 3+ consecutive nights</span>
+                    </div>
+                    <div class="deload-sign">
+                        <span class="sign-icon">💓</span>
+                        <span>Elevated resting heart rate (5+ bpm above baseline)</span>
+                    </div>
+                    <div class="deload-sign">
+                        <span class="sign-icon">😤</span>
+                        <span>Irritability, loss of motivation, brain fog</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h3 class="card-title">🔄 Deload Week Protocol (Weeks 4, 8, 12)</h3>
+                <div class="deload-protocol">
+                    <div class="deload-item"><strong>Lifting weight</strong><span>Reduce to 50–60% of working weights</span></div>
+                    <div class="deload-item"><strong>Sets</strong><span>Reduce by 50% (4 sets → 2 sets)</span></div>
+                    <div class="deload-item"><strong>Cardio volume</strong><span>Reduce by 30% (40 min → 28 min)</span></div>
+                    <div class="deload-item"><strong>HIIT</strong><span>Replace with Zone 2 or skip entirely</span></div>
+                    <div class="deload-item"><strong>Frequency</strong><span>Maintain normal schedule</span></div>
+                    <div class="deload-item"><strong>Focus</strong><span>Perfect form, mobility, sleep, nutrition</span></div>
+                </div>
+            </div>
+
+            <div class="glass-card disclaimer-card">
+                <h3>⚠️ Important Disclaimers</h3>
+                <ul>
+                    <li>Consult a physician before beginning any new exercise regimen</li>
+                    <li>If you experience sharp joint pain (not DOMS), stop and consult a professional</li>
+                    <li>For pelvic floor: if no improvement after 4-6 weeks, see a pelvic floor physiotherapist</li>
+                    <li>Start conservatively — ego is the #1 cause of injury for returning trainees</li>
+                    <li>Track weight weekly (same time, same conditions) and adjust calories accordingly</li>
+                    <li>If new to high protein, increase gradually over 2 weeks to avoid digestive issues</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Built with 💪 for your transformation — Program starts June 2026</p>
+        <p class="footer-small">Review & adjust every 4 weeks based on progress and recovery</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
